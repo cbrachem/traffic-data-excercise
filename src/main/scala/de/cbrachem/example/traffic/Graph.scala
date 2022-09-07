@@ -15,6 +15,12 @@ object Graph {
   /**
    * Adapted from https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Using_a_priority_queue
    * and https://medium.com/se-notes-by-alexey-novakov/algorithms-in-scala-dijkstra-shortest-path-78c4291dd8ab
+   *
+   * This exercise is supposed to be solved in a functional programming style, so it might be surprising to find mutable maps, a queue and a while loop
+   * which mutates the local state here. In my opinion, the main goal of functional programming is to make reading and reasoning about the code easier.
+   * Immutable data makes it easier to track changes, especially across larger parts of a programm or even in asynchronous or multi-threaded environments.
+   * In this case I think having Dijkstra's algorithm in a well-knwon form with some local mutable state (which is kept local and contained to this function)
+   * is preferrable to adopting the algorithm to a more functional form, possibly losing clarity in the process, simply because the result would look unfamiliar.
    */
   def findShortestPath[T](g: Graph[T], start: T, end: T): Either[AppError, ShortestPathSolution[T]] = {
     if (!g.vertices.contains(start) || !g.vertices.contains(end)) {
