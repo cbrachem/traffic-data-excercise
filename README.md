@@ -1,6 +1,8 @@
 # Solution for a Traffic Data Excercise
 
-This repository presents my solution to an assessment excercise I did in 2022. If I am allowed, I will include the problem statement in this repo.
+This repository presents my solution to an assessment excercise I did in 2022.
+The [problem statement is available here](problem.md).
+
 
 ## Notes on the sample dataset
 
@@ -12,6 +14,7 @@ Each set contains measurements for the same pairs of intersections. 1150 of thes
 The remaining 7 measurements are a bit special. They make up the expressway.
 
 The problem statement is not clear about whether one measurement must be for a direct transit between two intersections or if there could be measurements with several intersections "on the way". For example, there could be a measurement from 1A to 1C, which would consist of going from 1A to 1B and then form 1B to 1C. This would make estimating travel times more complicated. And in fact, the 7 measurements which supposedly make up the expressway could be interpreted as measurements with turns across the grid and multiple intersections inbetween. Looking at a distribution of the transit times beween direct neighbors, though, the 7 special fit right in with the other times. Because of that, and because all regular grid paths have exactly one measurement, I will conclude that any measurements between non-neighboring intersections are part of the expressway.
+
 
 ### Assumptions about the data:
 
